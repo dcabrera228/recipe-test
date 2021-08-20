@@ -1,3 +1,11 @@
+## Notes
+
+Type definitions: I used //@ts-ignore because I was running out of time but the ideal is to have all types defined.
+
+Unit testing: Each file should have a unit test. I did it just for home file.
+
+Styling: I would love to have more time to do a better styled visual implementation and set up for displayName styled components.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

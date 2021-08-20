@@ -7,7 +7,7 @@ import { useRecipesData } from "../hook";
 export const RecipeContext = React.createContext({});
 
 type Props = {
-  children: React.ReactNode;
+  children: any;
 };
 
 const RecipeProvider = ({ children }: Props) => {
