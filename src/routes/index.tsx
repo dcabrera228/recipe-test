@@ -15,6 +15,7 @@ import { Header } from "../header";
 //views
 //@ts-ignore
 const Home = lazy(() => import("../home"));
+const RecipeDetail = lazy(() => import("../home/components/recipe-detail"));
 
 const Routes = () => (
   <Suspense fallback={<div></div>}>
@@ -23,6 +24,12 @@ const Routes = () => (
       <Router>
         <Switch>
           <Route exact key={PATHS.HOME} path={PATHS.HOME} component={Home} />
+          <Route
+            exact
+            key={PATHS.RECIPE_DETAIL}
+            path={`${PATHS.RECIPE_DETAIL}/:id`}
+            component={RecipeDetail}
+          />
         </Switch>
       </Router>
       <Footer />

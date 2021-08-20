@@ -8,10 +8,19 @@ export const useRecipesData = () => {
   const [recipesData, setRecipesData] = useState([]);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [recipeData, setRecipeData] = useState([]);
   const [errorRecipeData, setErrorRecipeData] = useState(false);
   const [successRecipeData, setSuccessRecipeData] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+
+  const loadRecipe = async (id: string) => {
+    //@ts-ignore
+    const existingRecipe = recipesData.filter((item) => item.idMeal === id);
+    if (existingRecipe[0]) {
+      setSelectedRecipe(existingRecipe[0]);
+    } else {
+      await fetchRecipeData(id);
+    }
+  };
 
   const fetchDataSuccess = (dataSuccess: any) => {
     setRecipesData(dataSuccess.meals.slice(0, 5));
@@ -47,16 +56,14 @@ export const useRecipesData = () => {
     const response = await getRecipeData(id)
       .then((response) => fetchRecipeDataSuccess(response))
       .catch((err) => fetchRecipeDataError(err));
-
-    debugger;
     return response;
   };
 
   return {
     error,
     errorRecipeData,
+    loadRecipe,
     loadRandomRecipes,
-    recipeData,
     recipesData,
     selectedRecipe,
     success,
