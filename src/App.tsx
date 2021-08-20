@@ -1,8 +1,18 @@
+//vendors
 import React from "react";
-import "./App.css";
 
-function App() {
-  return <div className="App"></div>;
-}
+//components
+import Routes from "./routes";
+
+//styles
+import { AppStyledContainer } from "./App.styled";
+
+const App = () => {
+  return (
+    <AppStyledContainer>
+      <Routes />
+    </AppStyledContainer>
+  );
+};
 
 export default App;
