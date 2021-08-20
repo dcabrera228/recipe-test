@@ -1,5 +1,6 @@
 //vendors
 import React, { useEffect, useContext } from "react";
+import "@babel/polyfill";
 
 //context
 import { RecipeContext } from "./context";
